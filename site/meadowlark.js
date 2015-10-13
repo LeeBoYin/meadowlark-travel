@@ -1,3 +1,4 @@
+var luckyNum = require('./lib/luckyNum.js');
 var express = require('express');
 var app = express();
 
@@ -6,7 +7,7 @@ var handlebars = require('express3-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-var luckyNumbers = ["null", "eins", "zwei", "drei", "vier", "funf", "sechs", "sieben", "acht", "neun"];
+//var luckyNumbers = ["null", "eins", "zwei", "drei", "vier", "funf", "sechs", "sieben", "acht", "neun"];
 
 
 app.set('port', process.env.PORT || 3000);
@@ -26,8 +27,8 @@ app.get('/about', function(req, res){
 	
 	//get a random lucky numer
 	//then send luckyNumber as an input to about view
-	var randomLuckyNumber = luckyNumbers[Math.floor(Math.random()*luckyNumbers.length)];
-	res.render('about',{luckyNumber: randomLuckyNumber});
+	//var randomLuckyNumber = luckyNumbers[Math.floor(Math.random()*luckyNumbers.length)];
+	res.render('about',{luckyNumber: luckyNum.getLuckyNum()});
 });
 
 //route for public static files

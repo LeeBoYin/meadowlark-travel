@@ -1,4 +1,6 @@
+//import library module
 var luckyNum = require('./lib/luckyNum.js');
+
 var express = require('express');
 var app = express();
 
